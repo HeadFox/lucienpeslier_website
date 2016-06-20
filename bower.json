@@ -1,0 +1,25 @@
+{
+  "name": "Polymer_test",
+  "authors": [
+    "Peslier Lucien <lucien.headfox@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-elements": "polymerelements/iron-elements#^1.0.10",
+    "paper-elements": "polymerelements/paper-elements#^1.0.7",
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "0.7.22"
+  }
+}

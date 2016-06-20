@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="import" href="css/components_style.html">
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/paper-styles/color.html">
+    <link rel="import" href="bower_components/paper-styles/default-theme.html">
+    <link rel="import" href="bower_components/paper-styles/shadow.html">
+    <link rel="import" href="bower_components/paper-styles/typography.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-material/paper-material.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/iron-icons/image-icons.html" >
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html" >
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+  </head>
+  <body>
+  <template is="dom-bind">
+    <header>
+      <div class="background">
+        <div class="info">
+          <img class="headfox" src="img/headfox.png" alt="headfox">
+          <h1>Lucien Peslier</h1>
+          <h2>Web Designer & Intégrateur</h2>
+        </div>
+      </div>
+      <nav class="before_tabs">
+        <paper-tabs selected="{{selected}}">
+          <paper-tab>Acceuil</paper-tab>
+          <paper-tab>Portfolio</paper-tab>
+          <paper-tab>Compétences</paper-tab>
+          <paper-tab>Contact</paper-tab>
+        </paper-tabs>
+        <paper-fab class="personalize main" icon="image:brush"></paper-fab>
+        <div class="mini">
+          <paper-fab mini class="personalize second" icon="image:lens"></paper-fab>
+          <paper-fab mini class="personalize third" icon="image:lens"></paper-fab>
+        </div>
+      </nav>
+    </header>
+    <iron-pages selected="{{selected}}">
+      <section>
+        <article class="about">
+          <h1>A propos</h1>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              In sodales justo erat, eu accumsan arcu aliquet nec.
+              Nunc fringilla aliquam justo in pellentesque.
+              Morbi a justo malesuada metus consequat vehicula quis quis lectus.
+              Praesent fringilla nibh sit amet tempor tincidunt.
+              Fusce vulputate quam eget nisi dignissim rhoncus.
+              Aliquam eu ipsum non purus venenatis feugiat eget ut erat.
+              Donec porta egestas porttitor.
+              Aliquam feugiat elit leo, sed pulvinar elit commodo eget.
+            </p>
+          </div>
+        </article>
+        <article class="cv">
+          <h2>Télécharger mon CV</h2>
+          <paper-fab icon="icons:file-download"></paper-fab>
+        </article>
+      </section>
+      <section>
+        <article class="about">
+          <h1>Portfolio</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In sodales justo erat, eu accumsan arcu aliquet nec.
+            Nunc fringilla aliquam justo in pellentesque.
+            Morbi a justo malesuada metus consequat vehicula quis quis lectus.
+            Praesent fringilla nibh sit amet tempor tincidunt.
+            Fusce vulputate quam eget nisi dignissim rhoncus.
+            Aliquam eu ipsum non purus venenatis feugiat eget ut erat.
+            Donec porta egestas porttitor.
+            Aliquam feugiat elit leo, sed pulvinar elit commodo eget.
+          </p>
+        </article>
+        <article class="cv">
+          <h2>Télécharger mon CV</h2>
+          <paper-fab icon="icons:file-download"></paper-fab>
+        </article>
+      </section>
+      <section>
+        <article class="about">
+          <h1>Compétences</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In sodales justo erat, eu accumsan arcu aliquet nec.
+            Nunc fringilla aliquam justo in pellentesque.
+            Morbi a justo malesuada metus consequat vehicula quis quis lectus.
+            Praesent fringilla nibh sit amet tempor tincidunt.
+            Fusce vulputate quam eget nisi dignissim rhoncus.
+            Aliquam eu ipsum non purus venenatis feugiat eget ut erat.
+            Donec porta egestas porttitor.
+            Aliquam feugiat elit leo, sed pulvinar elit commodo eget.
+          </p>
+        </article>
+        <article class="cv">
+          <h2>Télécharger mon CV</h2>
+          <paper-fab icon="icons:file-download"></paper-fab>
+        </article>
+      </section>
+      <section>
+        <article class="about">
+          <h1>Contact</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In sodales justo erat, eu accumsan arcu aliquet nec.
+            Nunc fringilla aliquam justo in pellentesque.
+            Morbi a justo malesuada metus consequat vehicula quis quis lectus.
+            Praesent fringilla nibh sit amet tempor tincidunt.
+            Fusce vulputate quam eget nisi dignissim rhoncus.
+            Aliquam eu ipsum non purus venenatis feugiat eget ut erat.
+            Donec porta egestas porttitor.
+            Aliquam feugiat elit leo, sed pulvinar elit commodo eget.
+          </p>
+        </article>
+        <article class="cv">
+          <h2>Télécharger mon CV</h2>
+          <paper-fab icon="icons:file-download"></paper-fab>
+        </article>
+      </section>
+    </iron-pages>
+  </template>
+    <footer>
+      <section>
+        <article>
+          <h1>Peslier Lucien (HeadFox)</h1>
+          <p>55 rue de la course</p>
+          <p>67000 Strasbourg</p>
+          <a href="mailto:lucienpeslier@gmail.com"><h2>lucienpeslier@gmail.com</h2></a>
+          <h2>06.88.59.04.79</h2>
+        </article>
+        <article>
+          <ul class="social">
+            <li><a href="#"><paper-icon-button src="img/social/Facebook-color.svg" class="facebook"></paper-icon-button></a></li>
+            <li><a href="#"><paper-icon-button src="img/social/GooglePlus-color.svg" class="googleplus"></a></li>
+            <li><a href="#"><paper-icon-button src="img/social/Twitter-color.svg" class="twitter"></a></li>
+            <li><a href="#"><paper-icon-button src="img/social/Github-color.svg" class="github"></a></li>
+            <li><a href="#"><paper-icon-button src="img/social/LinkedIn-color.svg" class="linkedin"></a></li>
+          </ul>
+          <paper-button raised>Me contacter</paper-button>
+        </article>
+        <article>
+          <p>SIRET : 81406764100013</p>
+          <p>Copyright Lucien PESLIER 2016</p>
+        </article>
+      </section>
+    </footer>
+<script>
+  document.addEventListener('WebComponentsReady', function () {
+    var template = document.querySelector('template[is="dom-bind"]');
+    template.selected = 0; // selected is an index by default
+  });
+</script>
+    <!--
+    <a href="#" tabindex="-1">
+      <paper-button raised>link</paper-button>
+    </a>
+
+    -->
+  </body>
+</html>
