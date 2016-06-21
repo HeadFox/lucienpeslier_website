@@ -49,7 +49,7 @@
 
   }
   .addtop{
-    margin-top:58px;
+    margin-top:99.30px;
   }
   /** Main Navigation Bar **/
 
@@ -94,17 +94,70 @@
     color: #ff4081;
     background-color: #3f51b5;
   }
-  /****** Content ******/
+  /****** Content A propos******/
   /** A propos **/
+  .about{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .about h1{
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+  }
+  .about div{
+    margin: 0 auto;
+    width: 600px;
+    padding: 30px 40px 30px 40px;
+    border-radius: 2px;
+    background-color: #212121;
+    @apply(--shadow-elevation-2dp);
 
+  }
+  .about p{
+    color:#FFFFFF;
+    line-height: 1.5em;
+  }
+  /** Parcours **/
+  .parcours{
+    background-color: #1DE9B6;
+    text-align: center;
+  }
+  .parcours > div{
+    display: inline-block;
+  }
+  .parcours paper-material{
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+    line-height: 200px;
+  }
 
+  .parcours div paper-material div *{
+    line-height:1.2;
+  }
+  .parcours paper-material:first-child{
+    @apply(--shadow-elevation-12dp);
+  }
+  .parcours paper-material:nth-child(2){
+    @apply(--shadow-elevation-8dp);
+  }
+  .parcours paper-material:nth-child(3){
+    @apply(--shadow-elevation-6dp);
+  }
+  .parcours paper-material:nth-child(4){
+    @apply(--shadow-elevation-4dp);
+  }
   /** CV Téléchargement **/
   .cv{
+    margin: 50px 0 50px 0;
     text-align: center;
   }
   .cv paper-fab{
-    margin-top: 40px;
     display: inline-block;
+    margin-top: 40px;
   }
 
   /** Footer **/
@@ -123,6 +176,13 @@
   }
   footer section article{
     width: 280px;
+    line-height: 1.4em;
+  }
+  footer section article h1{
+    font-size: 1.4em;
+  }
+  footer section article h2{
+    font-size: 1.2em;
   }
   footer section article:nth-child(2){
     text-align: center;
@@ -132,8 +192,10 @@
     color: inherit;
   }
   footer paper-button{
+    margin-top: 20px;
     background: #1DE9B6;
     color:#FFFFFF;
+    font-family: 'Varela Round', sans-serif;
   }
   footer .social li{
     display: inline-block;
@@ -143,4 +205,7 @@
     height: 50px;
     --paper-icon-button-ink-color: #FFFFFF;
   }
+
+  /***** TESTING CSS ****/
+
 </style>
