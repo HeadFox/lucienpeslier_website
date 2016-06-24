@@ -17,7 +17,8 @@
   "dependencies": {
     "iron-elements": "polymerelements/iron-elements#^1.0.10",
     "paper-elements": "polymerelements/paper-elements#^1.0.7",
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.2.0",
+    "neon-animation": "PolymerElements/neon-animation#^1.2.3"
   },
   "resolutions": {
     "webcomponentsjs": "0.7.22"

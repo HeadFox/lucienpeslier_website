@@ -15,10 +15,22 @@
   .hidden{
     font-size: 0;
   }
+  .background_green{
+    background-color: #1DE9B6;
+  }
+  .background_rose{
+    background-color: #ff4081;
+  }
+  .background_blue{
+    background-color: #607D8B;
+  }
+  paper-button{
+    background-color: #1DE9B6;
+  }
   /****** HEADER ******/
   header{
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
   }
   .background{
     width: 100%;
@@ -61,8 +73,8 @@
       width: 100%;
 
   }
-  .addtop{
-    margin-top:99.30px;
+  .addbot{
+    margin-bottom:99.30px;
   }
   /** Main Navigation Bar **/
 
@@ -79,10 +91,13 @@
   paper-fab{
     background-color: #1DE9B6;
   }
+  paper-button{
+    font-family: 'Varela Round', sans-serif;
+  }
   header paper-fab{
     @apply(--shadow-elevation-6dp);
     transition: all 0.2s ease;
-    z-index: 1;
+    z-index: 99;
   }
   header paper-fab:hover{
     @apply(--shadow-elevation-12dp);
@@ -132,13 +147,11 @@
   /****** Content A propos******/
   /** A propos **/
   .about{
-    margin-top: 50px;
     margin-bottom: 50px;
   }
   .about h1{
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 30px;
   }
   .about div{
     margin: 0 auto;
@@ -161,18 +174,38 @@
   .parcours > div{
     display: inline-block;
   }
+  .parcours h1{
+    color:#FFFFFF;
+    padding: 40px 0 20px 0;
+  }
+  .parcours h2{
+    font-size: 1.5em;
+  }
+  .parcours h3{
+    font-size: 1.4em;
+  }
+  .parcours h4{
+    font-size: 1.3em;
+  }
   .parcours paper-material{
     border-radius: 2px;
     background-color: #FFFFFF;
     width: 500px;
     height: 200px;
     margin: 20px;
-    line-height: 200px;
+    position: relative;
   }
 
-  .parcours div paper-material div *{
-    line-height:1.2;
+  .parcours div paper-material div{
+    position: absolute;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    height: 30px;
+    margin:auto;
   }
+
   .parcours paper-material:first-child{
     @apply(--shadow-elevation-12dp);
   }
@@ -199,13 +232,150 @@
   .portfolio{
     text-align: center;
   }
-  .collectif img{
-    width: 50%;
+  .first{
+
   }
-  .collectif paper-material{
-    padding: 50px;
-    width: 1000px;
+  .two{
+    background-color: #212121;
+    display: inline-block;
+  }
+  .sites_logos ul li{
+    display: inline-block;
+    color:#FFFFFF;
+  }
+  .sites_logos ul li paper-button{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index:0;
+  }
+  .two paper-button{
+    background-color: #212121;
+  }
+  .sites, .logos{
+    z-index: 2;
+    position: relative;
+  }
+  .sites > h2, .logos > h2{
+    font-size: 2em;
+    padding: 40px 0 40px 0;
+  }
+
+  .sites{
+    padding-bottom: 40px;
+    background-color: #1DE9B6;
+    color: #FFFFFF;
+  }
+  .sites article{
+    display: inline-block;
+  }
+  .sites article paper-material{
+    background-color: #FFFFFF;
+    width: 600px;
+    height: 320px;
+    @apply(--shadow-elevation-4dp);
+    border-radius: 2px;
+    position: relative;
+  }
+  .sites article paper-material img{
+    position: absolute;
+    left:0;
+    right: 0;
+    top:25px;
     margin: 0 auto;
+  }
+  .sites article paper-material paper-button{
+    margin-top: 250px;
+  }
+  .sites article paper-material img[alt="Markusturm"]{
+    width: 30%;
+  }
+  .sites article paper-material img[alt="Collectif"]{
+    width: 45%;
+  }
+  /** Dialog **/
+  paper-dialog{
+    font-family: 'Varela Round', sans-serif;
+  }
+  paper-dialog h2{
+    font-family: 'Varela Round', sans-serif;
+  }
+  paper-dialog video{
+    max-width: 400px;
+  }
+  paper-dialog .close{
+    position: absolute;
+    top:0;
+    right:0;
+    cursor: pointer;
+  }
+  .logos{
+    padding-bottom: 40px;
+    background-color: #212121;
+  }
+  .logos h2{
+    color:#FFFFFF;
+  }
+  .logos article{
+    display: inline-block;
+    padding: 20px;
+  }
+  .logos article paper-material{
+    background-color: #FFFFFF;
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    @apply(--shadow-elevation-4dp);
+    transition: all 0.2s ease;
+    transform: scale(0.8);
+    cursor: pointer;
+    position: relative;
+  }
+  .logos article paper-material img{
+    width: 80%;
+    position: absolute;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin:auto;
+  }
+  .logos article paper-material img[alt="HeadFox"]{
+    width: 100%;
+  }
+  .logos article paper-material img[alt="Markusturm"]{
+    width: 85%;
+  }
+  .logos article paper-material img[alt="Piclab"]{
+    width: 60%;
+  }
+  .logos article paper-material:hover{
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  /****** Content Compétences ******/
+  /** Langages **/
+  .knowledge{
+    text-align: center;
+  }
+  .knowledge article{
+    display: inline-block;
+    margin: 0 auto;
+}
+  #progress{
+    width: 500px;
+    margin: 20px;
+  }
+  .green{
+    --paper-progress-active-color: #00E676;
+  }
+  .red{
+    --paper-progress-active-color: #FF1744;
+  }
+  .violet{
+    --paper-progress-active-color: #651FFF;
+  }
+  .blue{
+    --paper-progress-active-color: #2979FF;
   }
   /****** Content Contact ******/
   /** Contact **/
@@ -252,7 +422,6 @@
   }
   footer paper-button{
     margin-top: 20px;
-    background: #1DE9B6;
     color:#FFFFFF;
     font-family: 'Varela Round', sans-serif;
   }
