@@ -17,6 +17,12 @@ $( document ).ready(function() {
   $(".personalize.main").click(function(){
     $(".mini").toggle();
   });
+  $("#next").click(function(){
+    $("paper-tabs paper-tab").removeClass("iron-selected");
+    $("iron-pages section").removeClass("iron-selected");
+    $("paper-tabs paper-tab:last-child").addClass("iron-selected")
+    $("iron-pages section:last-child").addClass("iron-selected");
+  });
   $('.logos').hide();
   $(".first").click(function(){
     $('.sites').show();
@@ -29,6 +35,9 @@ $( document ).ready(function() {
   $(".personalize.second").click(function(){
     $('.before_tabs').removeClass("third-colorize");
     $('paper-tab').removeClass("third-colorize");
+    $('.web_server iron-icon').removeClass("color_green");
+    $('.web_server iron-icon').removeClass("color_rose");
+    $('.web_server iron-icon').addClass("color_blue");
     $('.before_tabs').addClass("second-colorize");
     $('paper-tab').addClass("second-colorize");
     $('paper-button').css("background-color","#01BCD4");
@@ -38,6 +47,9 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#01BCD4");
     $('.parcours').css("background-color","#01BCD4");
     $('#not_mini').css("background-color","#01BCD4");
+    $('.timeline').removeClass('color_green');
+    $('.timeline').removeClass('color_rose');
+    $('.timeline').addClass('color_blue');
     $(".personalize.fourth").show();
     $(".personalize.third").css("bottom","-82px");
     $(".personalize.third").show();
@@ -47,6 +59,9 @@ $( document ).ready(function() {
     $('.before_tabs').removeClass("second-colorize");
     $('paper-tab').removeClass("second-colorize");
     $('.before_tabs').addClass("third-colorize");
+    $('.web_server iron-icon').removeClass("color_green");
+    $('.web_server iron-icon').addClass("color_rose");
+    $('.web_server iron-icon').removeClass("color_blue");
     $('paper-button').css("background-color","#FF4081");
     $('.two').css("background-color","#212121");
     $('paper-tab').addClass("third-colorize");
@@ -56,6 +71,9 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#FF4081");
     $('.parcours').css("background-color","#FF4081");
     $('#not_mini').css("background-color","#FF4081");
+    $('.timeline').removeClass('color_green');
+    $('.timeline').removeClass('color_blue');
+    $('.timeline').addClass('color_rose');
     $(".personalize.fourth").show();
     $(".personalize.third").hide();
     $(".personalize.second").show();
@@ -64,6 +82,9 @@ $( document ).ready(function() {
     $('.before_tabs').removeClass("second-colorize");
     $('paper-tab').removeClass("second-colorize");
     $('.before_tabs').removeClass("third-colorize");
+    $('.web_server iron-icon').addClass("color_green");
+    $('.web_server iron-icon').removeClass("color_rose");
+    $('.web_server iron-icon').removeClass("color_blue");
     $('paper-button').css("background-color","#1DE9B6");
     $('paper-tab').removeClass("third-colorize");
     $('.sites').css("background-color","#1DE9B6");
@@ -72,6 +93,9 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#1DE9B6");
     $('#not_mini').css("background-color","#1DE9B6");
     $('.parcours').css("background-color","#1DE9B6");
+    $('.timeline').removeClass('color_blue');
+    $('.timeline').removeClass('color_rose');
+    $('.timeline').addClass('color_green');
     $(".personalize.fourth").hide();
     $(".personalize.third").css("bottom","-135px");
     $(".personalize.third").show();

@@ -8,6 +8,9 @@
   h2{
     font-size: 1.5em;
   }
+  h3{
+    font-size: 1.3em;
+  }
   .is-fixed{
     position: fixed;
     top:0;
@@ -18,12 +21,22 @@
   .background_green{
     background-color: #1DE9B6;
   }
+  .color_green{
+    color: #1DE9B6;
+  }
   .background_rose{
     background-color: #ff4081;
+  }
+  .color_rose{
+    color: #ff4081;
   }
   .background_blue{
     background-color: #607D8B;
   }
+  .color_blue{
+    color: #01BCD4;
+  }
+
   paper-button{
     background-color: #1DE9B6;
   }
@@ -34,9 +47,9 @@
   }
   .background{
     width: 100%;
+    background-image: url(../img/back.jpeg);
+    background-position: center center;
     height: 60vh;
-    background-color: #212121;
-    line-height: 100%;
     text-align: center;
   }
   .info{
@@ -79,13 +92,14 @@
   /** Main Navigation Bar **/
 
   paper-tabs{
-    width: 40vw;
+    width: 40%;
     --paper-tabs-selection-bar-color: #1DE9B6;
   }
   paper-tab{
     --paper-tab-ink: #212121;
     text-decoration: none;
     color: #212121;
+    min-width: 35px;
     font-family: 'Varela Round', sans-serif;
   }
   paper-fab{
@@ -110,6 +124,7 @@
     position: absolute;
     right: 35px;
     bottom: -28px;
+    z-index: 10;
   }
   .personalize.second, .personalize.third, .personalize.fourth{
     right: 42px;
@@ -155,7 +170,8 @@
   }
   .about div{
     margin: 0 auto;
-    width: 600px;
+    width: 60%;
+    max-width: 600px;
     padding: 30px 40px 30px 40px;
     border-radius: 2px;
     background-color: #212121;
@@ -170,6 +186,7 @@
   .parcours{
     background-color: #1DE9B6;
     text-align: center;
+    font-size: 1.5em;
   }
   .parcours > div{
     display: inline-block;
@@ -177,6 +194,7 @@
   .parcours h1{
     color:#FFFFFF;
     padding: 40px 0 20px 0;
+    font-size: 2em;
   }
   .parcours h2{
     font-size: 1.5em;
@@ -187,10 +205,29 @@
   .parcours h4{
     font-size: 1.3em;
   }
+  .parcours h5{
+    font-size: 1.2em;
+  }
+  .date{
+    border: 2px solid #212121;
+    border-radius: 10px;
+    width: 50vw;
+    min-width: 300px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .date h5{
+    position: absolute;
+    left:0;
+    right: 0;
+    margin: auto;
+    top:-30px;
+  }
+
   .parcours paper-material{
     border-radius: 2px;
     background-color: #FFFFFF;
-    width: 500px;
     height: 200px;
     margin: 20px;
     position: relative;
@@ -202,21 +239,30 @@
     right: 0;
     top:0;
     bottom: 0;
-    height: 30px;
+    width: 100%;
+    height: 30%;
     margin:auto;
   }
 
-  .parcours paper-material:first-child{
+  .parcours .elev_12{
     @apply(--shadow-elevation-12dp);
   }
-  .parcours paper-material:nth-child(2){
+  .parcours .elev_8{
     @apply(--shadow-elevation-8dp);
   }
-  .parcours paper-material:nth-child(3){
+  .parcours .elev_6{
     @apply(--shadow-elevation-6dp);
   }
-  .parcours paper-material:nth-child(4){
+  .parcours .elev_4{
     @apply(--shadow-elevation-4dp);
+  }
+  .timeline{
+    display: block;
+    margin: 0 auto;
+    --iron-icon-height: 70px;
+    --iron-icon-width: 70px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
   }
   /** CV Téléchargement **/
   .cv{
@@ -270,7 +316,8 @@
   }
   .sites article paper-material{
     background-color: #FFFFFF;
-    width: 600px;
+    width: 90vw;
+    max-width: 600px;
     height: 320px;
     @apply(--shadow-elevation-4dp);
     border-radius: 2px;
@@ -293,6 +340,8 @@
     width: 45%;
   }
   /** Dialog **/
+  iron-overlay-backdrop{
+  }
   paper-dialog{
     font-family: 'Varela Round', sans-serif;
   }
@@ -318,6 +367,20 @@
   .logos article{
     display: inline-block;
     padding: 20px;
+    position: relative;
+    border-radius: 50%;
+  }
+  .logos article paper-button{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin:auto;
+    transition: all 0.2s ease;
+    transform: scale(0);
   }
   .logos article paper-material{
     background-color: #FFFFFF;
@@ -348,7 +411,10 @@
   .logos article paper-material img[alt="Piclab"]{
     width: 60%;
   }
-  .logos article paper-material:hover{
+  .logos article:hover paper-button{
+    transform: scale(1);
+  }
+  .logos article:hover paper-material{
     transform: scale(1);
     opacity: 0.6;
   }
@@ -357,13 +423,59 @@
   .knowledge{
     text-align: center;
   }
+  .knowledge h1{
+  }
+  .knowledge section{
+    margin: 40px 0 40px 0;
+  }
   .knowledge article{
+    padding: 20px;
+    display: block;
+  }
+  .knowledge article ul{
     display: inline-block;
     margin: 0 auto;
-}
+  }
+  .knowledge article:nth-child(2){
+    background-color: #212121;
+  }
+  .knowledge article:nth-child(2){
+    color: #FFFFFF;
+  }
+  .knowledge article:nth-child(2) .progress span{
+    color:#212121;
+    background-color: #FFFFFF;
+  }
+  .knowledge article:nth-child(3) div{
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .knowledge article:nth-child(3) h2,.knowledge article:nth-child(3) h3 {
+    text-align: center;
+  }
   #progress{
-    width: 500px;
+    width: 80vw;
+    max-width: 500px;
     margin: 20px;
+  }
+  .progress{
+    position: relative;
+  }
+  .progress span{
+    position: absolute;
+    right:0;
+    bottom:10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    color:#FFFFFF;
+  }
+  .progress span p{
+    font-size: 0.8em;
+  }
+  .orange{
+    --paper-progress-active-color:#FF3D00;
   }
   .green{
     --paper-progress-active-color: #00E676;
@@ -374,13 +486,48 @@
   .violet{
     --paper-progress-active-color: #651FFF;
   }
+  .yellow{
+    --paper-progress-active-color: #FFEA00;
+  }
+  .light_blue{
+    --paper-progress-active-color: #00B0FF;
+  }
   .blue{
     --paper-progress-active-color: #2979FF;
+  }
+  /** Web Server **/
+  .web_server .list{
+    margin-top: 10px;
+  }
+  .web_server hr{
+    height: 1px;
+    border: 0;
+    margin: 40px 0 40px 0;
+    background-color: #E0E0E0;
+
+  }
+  .web_server .cloud{
+    --iron-icon-height: 100px;
+    --iron-icon-width: 100px;
+  }
+  .web_server .def{
+    margin-top: 10px;
+  }
+  .web_server .def li{
+    text-align: left;
+    line-height: 30px;
+  }
+  .web_server .list li{
+    text-align: center;
+  }
+  .web_server .list a{
+    text-decoration: none;
+    color:#212121;
   }
   /****** Content Contact ******/
   /** Contact **/
   .contact{
-    width: 600px;
+    width: 90vw;
     margin: 0 auto;
   }
   .contact h1{
@@ -435,5 +582,21 @@
   }
 
   /***** TESTING CSS ****/
-
+  .no_color{
+    background: none!important;
+  }
+  @media screen and (max-width: 425px){
+    paper-tabs{
+      width: 75%;
+    }
+    .personalize{
+      right: 15px;
+    }
+    .personalize.second, .personalize.third, .personalize.fourth{
+      right: 25px;
+    }
+    footer section{
+      display: block;
+    }
+  }
 </style>

@@ -2,11 +2,12 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"> -->
     <link rel="import" href="css/components_style.html">
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/paper-styles/color.html">
@@ -20,6 +21,8 @@
     <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="bower_components/iron-icons/image-icons.html" >
     <link rel="import" href="bower_components/iron-icons/iron-icons.html" >
+    <link rel="import" href="bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
+    <link rel="import" href="bower_components/iron-validatable-behavior/iron-validatable-behavior.html">
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
     <link rel="import" href="bower_components/iron-pages/iron-pages.html">
     <link rel="import" href="bower_components/iron-form/iron-form.html">
@@ -60,7 +63,7 @@
         </div>
       </nav>
     </header>
-    <iron-pages selected="2">
+    <iron-pages selected="{{selected}}">
       <section>
         <article class="about">
           <div>
@@ -79,37 +82,46 @@
           </div>
         </article>
         <article class="parcours">
-          <div>
             <h1>Mon parcours</h1>
-            <paper-material>
-              <div>
-                <h2>Auto-entrepreneur</h2>
-              </div>
-            </paper-material>
-            <paper-material>
-              <div>
-                <h2>DUT MMI</h2>
-                <p>IUT Haguenau</p>
-              </div>
-            </paper-material>
-            <paper-material>
-              <div>
-                <h3>DUT Informatique</h3>
-                <p>IUT Nancy-Charlemagne</p>
-              </div>
-            </paper-material>
-            <paper-material>
-              <div>
-                <h4>BAC S (Spécialité ISN)</h4>
-                <p>Lycée Marcel Pagnol</p>
-                <p>Athis-Mons</p>
-              </div>
-            </paper-material>
-          </div>
+            <div class="date">
+              <h5>2015 - 2016</h5>
+              <paper-material class="elev_12">
+                <div>
+                  <h2>Auto-entrepreneur</h2>
+                </div>
+              </paper-material>
+              <paper-material class="elev_8">
+                <div>
+                  <h2>DUT MMI</h2>
+                  <p>IUT Haguenau</p>
+                </div>
+              </paper-material>
+            </div>
+            <iron-icon class="timeline color_green" icon="icons:expand-less"></iron-icon>
+            <div class="date">
+              <h5>2014 - 2015</h5>
+              <paper-material class="elev_6">
+                <div>
+                  <h3>DUT Informatique</h3>
+                  <p>IUT Nancy-Charlemagne</p>
+                </div>
+              </paper-material>
+            </div>
+            <iron-icon class="timeline color_green" icon="icons:expand-less"></iron-icon>
+            <div class="date">
+              <h5>2014</h5>
+              <paper-material class="elev_4">
+                <div>
+                  <h4>BAC S (Spécialité ISN)</h4>
+                  <p>Lycée Marcel Pagnol</p>
+                  <p>Athis-Mons</p>
+                </div>
+              </paper-material>
+            </div>
         </article>
         <article class="cv">
           <h2>Telecharger mon CV</h2>
-          <paper-fab id="not_mini" icon="icons:file-download"></paper-fab>
+          <a href="img/CV_Material_lucien.pdf" download><paper-fab id="not_mini" icon="icons:file-download"></paper-fab></a>
         </article>
       </section>
       <section>
@@ -127,14 +139,26 @@
               <h2 class="hidden">Collectif-turbulences</h2>
               <paper-material>
                 <img src="img/collectif_logo.png" alt="Collectif">
-                <paper-button raised onclick="dialog.toggle()">Voir le site</paper-button>
+                <paper-button raised data-dialog="modal" onclick="clickHandler(event)">Voir le site</paper-button>
               </paper-material>
 
-              <paper-dialog id="dialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+              <paper-dialog id="modal" entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
                 <h2>Collectif Turbulences</h2>
                 <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
                 <video src="#" controls autobuffer poster="img/collectif-screen/collectif-screen-1.png"></video>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul class="dialog_list">
+                  <li>Demande : Mise à niveau de l'ancien site web</li>
+                  <li>
+                    <ul>Chartre graphique :
+                      <li>Couleurs : Rouge, Gris, Blanc</li>
+                    </ul>
+                  </li>
+                  <li>Cible : Association d'écrivains et de comédiens</li>
+                  <li>Technologies utilisés : Wordpress</li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
               </paper-dialog>
             </article>
             <article class="markusturm">
@@ -143,11 +167,10 @@
                 <img src="img/markusturm.png" alt="Markusturm">
                 <paper-button raised onclick="dialog2.toggle()">Voir le site</paper-button>
               </paper-material>
-              <paper-dialog id="dialog2"  with-backdrop entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+              <paper-dialog id="dialog2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
                 <h2>Dialog2 Title</h2>
                 <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
                 <video src="#" controls autobuffer poster="img/markusturm-screen/markusturm-screen-1.png"></video>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               </paper-dialog>
             </article>
           </section>
@@ -155,18 +178,19 @@
             <h2>Mes logos</h2>
             <article>
               <paper-material><img src="img/collectif_logo.png" alt="Collectif"></paper-material>
+              <paper-button raised>Voir le logo</paper-button>
             </article>
             <article>
               <paper-material><img src="img/headfox.png" alt="HeadFox"></paper-material>
+              <paper-button raised>Voir le logo</paper-button>
             </article>
             <article>
               <paper-material><img src="img/markusturm.png" alt="Markusturm"></paper-material>
+              <paper-button raised>Voir le logo</paper-button>
             </article>
             <article>
               <paper-material><img src="img/piclab.png" alt="Piclab"></paper-material>
-            </article>
-            <article>
-              <paper-material></paper-material>
+              <paper-button raised>Voir le logo</paper-button>
             </article>
           </section>
         </article>
@@ -176,10 +200,89 @@
           <h1>Compétences</h1>
           <section>
             <article class="">
-              <paper-progress value="60" class="green" id="progress"></paper-progress>
-              <paper-progress value="80" class="red" id="progress"></paper-progress>
-              <paper-progress value="90" class="violet" id="progress"></paper-progress>
-              <paper-progress value="30" class="blue" id="progress"></paper-progress>
+              <ul>
+                <li>
+                  <h2>HTML5</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>90%</p></span>
+                    <paper-progress value="90" class="orange" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>CSS</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>75%</p></span>
+                    <paper-progress value="75" class="blue" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>PHP</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>60%</p></span>
+                    <paper-progress value="60" class="violet" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>JS</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>20%</p></span>
+                    <paper-progress value="20" class="yellow" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>Jquery</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>40%</p></span>
+                    <paper-progress value="40" class="light_blue" id="progress"></paper-progress>
+                  </div>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <ul>
+                <li>
+                  <h2>Photoshop</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>90%</p></span>
+                    <paper-progress value="90" class="orange" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>Illustrator</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>75%</p></span>
+                    <paper-progress value="75" class="blue" id="progress"></paper-progress>
+                  </div>
+                </li>
+                <li>
+                  <h2>Premiere Pro</h2>
+                  <div class="progress">
+                    <span class="background_green"><p>60%</p></span>
+                    <paper-progress value="60" class="violet" id="progress"></paper-progress>
+                  </div>
+                </li>
+              </ul>
+            </article>
+            <article class="web_server">
+              <div>
+                <iron-icon class="color_green cloud" icon="icons:cloud-circle"></iron-icon>
+                <h2>Mise en place d'un serveur Web</h2>
+                <ul class="def">
+                  <li><iron-icon class="color_green" icon="icons:done"></iron-icon>Apache 2</li>
+                  <li><iron-icon class="color_green" icon="icons:done"></iron-icon>PHP 7.0</li>
+                  <li><iron-icon class="color_green" icon="icons:done"></iron-icon>MySQL</li>
+                  <li><iron-icon class="color_green" icon="icons:done"></iron-icon>phpmyadmin</li></ul>
+                  <hr>
+                  <iron-icon class="color_green cloud" icon="icons:face"></iron-icon>
+                <h3>Gestion d'utilisateurs et mise en place de sites</h3>
+                <ul class="list">
+                  <li><a href="http://www.leahotz.fr" tabindex="-1"><paper-button class="no_color">leahotz.fr</paper-button></a></li>
+                  <li><a href="http://www.baoidoux.fr" tabindex="-1"><paper-button class="no_color">baoidoux.fr</paper-button></a></li>
+                  <li><a href="http://www.alexiameyer.fr" tabindex="-1"><paper-button class="no_color">alexiameyer.fr</paper-button></a></li>
+                  <li><a href="http://www.arnaud-lebold.fr" tabindex="-1"><paper-button class="no_color">arnaud-lebold.fr</paper-button></a></li>
+                  <li><a href="http://www.tiphaine-buchart.fr" tabindex="-1"><paper-button class="no_color">tiphaine-lebold.fr</paper-button></a></li>
+                </ul>
+              </div>
             </article>
           </section>
         </article>
@@ -187,12 +290,14 @@
       <section>
         <article class="contact">
           <h1>Contact</h1>
-          <form is="iron-form" id="form" method="post" action="/form/handler">
-            <paper-input label="Nom"></paper-input>
-            <paper-input label="Prénom"></paper-input>
-            <paper-input label="Email" type="email"></paper-input>
-            <paper-textarea rows="4"label="Votre message"></paper-textarea>
+          <form method="post" action="process.php" id="basic">
+            <paper-input name="nom" label="Nom"></paper-input>
+            <paper-input name="prenom" label="Prénom"></paper-input>
+            <paper-input name="email"label="Email" type="email"></paper-input>
+            <paper-textarea name="message" rows="4"label="Votre message"></paper-textarea>
+            <input raised type="submit" value="Envoyer">
           </form>
+          <div class="output"></div>
         </article>
       </section>
     </iron-pages>
@@ -208,13 +313,13 @@
         </article>
         <article>
           <ul class="social">
-            <li><a href="#"><paper-icon-button src="img/social/Facebook-color.svg" class="facebook"></paper-icon-button></a></li>
+            <li><a href="https://www.facebook.com/lucien.peslier"><paper-icon-button src="img/social/Facebook-color.svg" class="facebook"></paper-icon-button></a></li>
             <li><a href="#"><paper-icon-button src="img/social/GooglePlus-color.svg" class="googleplus"></a></li>
-            <li><a href="#"><paper-icon-button src="img/social/Twitter-color.svg" class="twitter"></a></li>
-            <li><a href="#"><paper-icon-button src="img/social/Github-color.svg" class="github"></a></li>
+            <li><a href="https://twitter.com/peslierlucien"><paper-icon-button src="img/social/Twitter-color.svg" class="twitter"></a></li>
+            <li><a href="https://github.com/HeadFox"><paper-icon-button src="img/social/Github-color.svg" class="github"></a></li>
             <li><a href="#"><paper-icon-button src="img/social/LinkedIn-color.svg" class="linkedin"></a></li>
           </ul>
-          <paper-button raised>Me contacter</paper-button>
+          <paper-button id="next" raised>Me contacter</paper-button>
         </article>
         <article>
           <p>SIRET : 81406764100013</p>
@@ -227,6 +332,20 @@
     var template = document.querySelector('template[is="dom-bind"]');
     template.selected = 0; // selected is an index by default
   });
+  function clickHandler(e) {
+       var button = e.target;
+       while (!button.hasAttribute('data-dialog') && button !== document.body) {
+         button = button.parentElement;
+       }
+       if (!button.hasAttribute('data-dialog')) {
+         return;
+       }
+       var id = button.getAttribute('data-dialog');
+       var dialog = document.getElementById(id);
+       if (dialog) {
+         dialog.open();
+       }
+     }
   var progress, button;
     var repeat, maxRepeat = 1, animating = false;
     function nextProgress() {
@@ -257,11 +376,6 @@
     });
 
 </script>
-    <!--
-    <a href="#" tabindex="-1">
-      <paper-button raised>link</paper-button>
-    </a>
 
-    -->
   </body>
 </html>
