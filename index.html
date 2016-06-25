@@ -142,10 +142,11 @@
             <article class="collectif">
               <h2 class="hidden">Collectif-turbulences</h2>
               <paper-material>
-                <img src="img/collectif_logo.png" alt="Collectif">
-                <paper-button raised data-dialog="modal" onclick="clickHandler(event)">Voir le site</paper-button>
+                <div>
+                  <img src="img/collectif_logo.png" alt="Collectif">
+                  <paper-button raised data-dialog="modal" onclick="clickHandler(event)">Voir le site</paper-button>
+                </div>
               </paper-material>
-
               <paper-dialog id="modal" entry-animation="scale-up-animation" exit-animation="fade-out-animation" >
                 <h2>Collectif Turbulences</h2>
                 <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
@@ -154,14 +155,12 @@
                   <li>Demande : Mise à niveau de l'ancien site web</li>
                   <li>
                     <ul>Chartre graphique :
-                      <li>Couleurs : Rouge, Gris, Blanc</li><
+                      <li>Couleurs : Rouge, Gris, Blanc</li>
                       <li>Style : Leger, Moderne
                     </ul>
                   </li>
                   <li>Cible : Association d'écrivains et de comédiens</li>
                   <li>Technologies utilisés : Wordpress</li>
-                  <li></li>
-                  <li></li>
                   <li></li>
                 </ul>
               </paper-dialog>
@@ -169,8 +168,10 @@
             <article class="markusturm">
               <h2 class="hidden">Markusturm</h2>
               <paper-material>
-                <img src="img/markusturm.png" alt="Markusturm">
-                <paper-button raised onclick="dialog2.toggle()">Voir le site</paper-button>
+                <div>
+                  <img src="img/markusturm.png" alt="Markusturm">
+                  <paper-button raised onclick="dialog2.toggle()">Voir le site</paper-button>
+                </div>
               </paper-material>
               <paper-dialog id="dialog2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
                 <h2>Dialog2 Title</h2>

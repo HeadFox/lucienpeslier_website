@@ -2,6 +2,9 @@
   html{
     font-family: 'Varela Round', sans-serif;
   }
+  body{
+    height: 100vh;
+  }
   h1{
     font-size: 2.3em;
   }
@@ -351,31 +354,35 @@
   }
   .sites article{
     display: inline-block;
+    vertical-align: middle;
   }
   .sites article paper-material{
-    background-color: #FFFFFF;
+    position: relative;
+    margin-bottom: 20px;
     width: 90vw;
     max-width: 600px;
     height: 320px;
+    background-color: #FFFFFF;
     @apply(--shadow-elevation-4dp);
     border-radius: 2px;
-    position: relative;
+    padding: 10px;
+  }
+  .sites article paper-material > div{
+    height: 300px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
   }
   .sites article paper-material img{
-    position: absolute;
-    left:0;
-    right: 0;
-    top:25px;
+    display: block;
     margin: 0 auto;
+    height: 200px;
   }
   .sites article paper-material paper-button{
-    margin-top: 250px;
-  }
-  .sites article paper-material img[alt="Markusturm"]{
-    width: 30%;
-  }
-  .sites article paper-material img[alt="Collectif"]{
-    width: 45%;
+    margin-top: 10%;
   }
   /** Dialog **/
   iron-overlay-backdrop{
@@ -668,12 +675,6 @@
     }
     .personalize.fourth{
       bottom: 135px;
-    }
-    .sites article paper-material{
-      height: 40%;
-      @apply(--shadow-elevation-4dp);
-      border-radius: 2px;
-      position: relative;
     }
   }
   @media screen and (max-width: 425px){
