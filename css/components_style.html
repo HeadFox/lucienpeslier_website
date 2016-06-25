@@ -3,7 +3,7 @@
     font-family: 'Varela Round', sans-serif;
   }
   h1{
-    font-size: 2em;
+    font-size: 2.3em;
   }
   h2{
     font-size: 1.5em;
@@ -13,7 +13,17 @@
   }
   .is-fixed{
     position: fixed;
+    width: 100vw;
+    @apply(--shadow-elevation-2dp);
     top:0;
+    z-index: 20;
+
+  }
+  .change_135{
+    bottom: -135px;
+  }
+  .change_82{
+    bottom: -82px !important;
   }
   .hidden{
     font-size: 0;
@@ -49,12 +59,20 @@
     width: 100%;
     background-image: url(../img/back.jpeg);
     background-position: center center;
-    height: 60vh;
+    height: 70%;
+    min-height: 350px;
     text-align: center;
+    position: relative;
   }
   .info{
-    padding-top: 5%;
-    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 300px;
+    display: inline-block;
     color: #FFFFFF;
     line-height: 3em;
   }
@@ -62,7 +80,7 @@
     font-weight: 300;
   }
   .headfox{
-    width: 15%;
+    width: 200px;
     padding-bottom: 10px;
   }
   header h1{
@@ -80,11 +98,9 @@
     border-radius: 2px;
   }
   .before_tabs{
-      @apply(--shadow-elevation-2dp);
       background-color: #FFFFFF;
-      z-index: 99;
+      z-index: 20;
       width: 100%;
-
   }
   .addbot{
     margin-bottom:99.30px;
@@ -92,7 +108,8 @@
   /** Main Navigation Bar **/
 
   paper-tabs{
-    width: 40%;
+    margin-right: 10%;
+    background-color: #FFFFFF;
     --paper-tabs-selection-bar-color: #1DE9B6;
   }
   paper-tab{
@@ -122,12 +139,12 @@
   }
   .personalize{
     position: absolute;
-    right: 35px;
+    right: 2%;
     bottom: -28px;
     z-index: 10;
   }
   .personalize.second, .personalize.third, .personalize.fourth{
-    right: 42px;
+    right: 36px;
     display: block;
   }
   .personalize.second{
@@ -167,34 +184,53 @@
   .about h1{
     text-align: center;
     color: #FFFFFF;
+    padding-bottom: 40px;
   }
-  .about div{
+  .about > div{
     margin: 0 auto;
     width: 60%;
     max-width: 600px;
-    padding: 30px 40px 30px 40px;
+    padding: 20px 60px 50px 60px;
     border-radius: 2px;
     background-color: #212121;
     @apply(--shadow-elevation-2dp);
+    position: relative;
 
   }
+  .corner{
+    width: 10%;
+    position: absolute;
+  }
+  .corner_left{
+    left:30px;
+    top: 70px;
+  }
+  .corner_right{
+    right:30px;
+    bottom: 30px;
+    transform: rotate(180deg);
+  }
   .about p{
+    /*border: solid;
+    border-image: url(../img/corner-02.png) 50% round;
+    border-image-width:50px;
+    padding: 20px;*/
     color:#FFFFFF;
+    box-sizing: border-box;
     line-height: 1.5em;
   }
   /** Parcours **/
   .parcours{
     background-color: #1DE9B6;
     text-align: center;
-    font-size: 1.5em;
   }
+
   .parcours > div{
     display: inline-block;
   }
   .parcours h1{
     color:#FFFFFF;
     padding: 40px 0 20px 0;
-    font-size: 2em;
   }
   .parcours h2{
     font-size: 1.5em;
@@ -209,12 +245,13 @@
     font-size: 1.2em;
   }
   .date{
+    font-size: 1.5em;
     border: 2px solid #212121;
     border-radius: 10px;
     width: 50vw;
     min-width: 300px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     position: relative;
   }
   .date h5{
@@ -290,6 +327,7 @@
     color:#FFFFFF;
   }
   .sites_logos ul li paper-button{
+    width: 150px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     z-index:0;
@@ -528,6 +566,7 @@
   /** Contact **/
   .contact{
     width: 90vw;
+    max-width: 700px;
     margin: 0 auto;
   }
   .contact h1{
@@ -535,6 +574,21 @@
   }
   form{
     text-align: left;
+  }
+  form paper-button{
+    padding: 0;
+    margin: 10px 0 10px 0;
+  }
+  form .submit{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 0;
+    padding: 15px 15px 15px 15px;
+    background: none;
+    display: block;
+    color:#FFFFFF;
+    outline: none;
   }
   /** Footer **/
   footer{
@@ -569,6 +623,7 @@
   }
   footer paper-button{
     margin-top: 20px;
+    margin-bottom: 20px;
     color:#FFFFFF;
     font-family: 'Varela Round', sans-serif;
   }
@@ -585,18 +640,52 @@
   .no_color{
     background: none!important;
   }
-  @media screen and (max-width: 425px){
+  @media screen and (max-width: 800px){
+
+    .change_135{
+      bottom: 135px;
+    }
+    .change_82{
+      bottom: 85px !important;
+
+    }
     paper-tabs{
-      width: 75%;
+      width: 100%;
     }
     .personalize{
-      right: 15px;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
     }
     .personalize.second, .personalize.third, .personalize.fourth{
-      right: 25px;
+      right: 26px;
+    }
+    .personalize.second{
+      bottom: 85px;
+    }
+    .personalize.third{
+      bottom: 135px;
+    }
+    .personalize.fourth{
+      bottom: 135px;
+    }
+    .sites article paper-material{
+      height: 40%;
+      @apply(--shadow-elevation-4dp);
+      border-radius: 2px;
+      position: relative;
+    }
+  }
+  @media screen and (max-width: 425px){
+    header{
+      position: static;
     }
     footer section{
+      text-align: center;
       display: block;
+    }
+    footer section article{
+      margin: 0 auto;
     }
   }
 </style>

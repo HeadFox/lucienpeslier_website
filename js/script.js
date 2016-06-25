@@ -51,7 +51,8 @@ $( document ).ready(function() {
     $('.timeline').removeClass('color_rose');
     $('.timeline').addClass('color_blue');
     $(".personalize.fourth").show();
-    $(".personalize.third").css("bottom","-82px");
+    $(".personalize.third").removeClass("change_135");
+    $(".personalize.third").addClass("change_82");
     $(".personalize.third").show();
     $(".personalize.second").hide();
   });
@@ -74,6 +75,8 @@ $( document ).ready(function() {
     $('.timeline').removeClass('color_green');
     $('.timeline').removeClass('color_blue');
     $('.timeline').addClass('color_rose');
+    $(".personalize.third").removeClass("change_135");
+    $(".personalize.third").removeClass("change_82");
     $(".personalize.fourth").show();
     $(".personalize.third").hide();
     $(".personalize.second").show();
@@ -97,7 +100,8 @@ $( document ).ready(function() {
     $('.timeline').removeClass('color_rose');
     $('.timeline').addClass('color_green');
     $(".personalize.fourth").hide();
-    $(".personalize.third").css("bottom","-135px");
+    $(".personalize.third").removeClass("change_82");
+    $(".personalize.third").addClass("change_135");
     $(".personalize.third").show();
     $(".personalize.second").show();
 
