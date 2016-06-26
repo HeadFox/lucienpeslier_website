@@ -27,12 +27,7 @@ $( document ).ready(function() {
   $(".personalize.main").click(function(){
     $(".mini").toggle();
   });
-  $("#next").click(function(){
-    $("paper-tabs paper-tab").removeClass("iron-selected");
-    $("iron-pages section").removeClass("iron-selected");
-    $("paper-tabs paper-tab:last-child").addClass("iron-selected")
-    $("iron-pages section:last-child").addClass("iron-selected");
-  });
+
   $('.logos').hide();
   $(".first").click(function(){
     $('.sites').show();
@@ -50,13 +45,13 @@ $( document ).ready(function() {
     $('.web_server iron-icon').addClass("color_blue");
     $('.before_tabs').addClass("second-colorize");
     $('paper-tab').addClass("second-colorize");
-    $('paper-button').css("background-color","#01BCD4");
-    $('.sites').css("background-color","#01BCD4");
+    $('paper-button').css("background-color","#3F51B5");
+    $('.sites').css("background-color","#3F51B5");
     $('.two').css("background-color","#212121");
     $('.personalize.main').css("color","#FFFFFF");
-    $('.personalize.main').css("background-color","#01BCD4");
-    $('.parcours').css("background-color","#01BCD4");
-    $('#not_mini').css("background-color","#01BCD4");
+    $('.personalize.main').css("background-color","#3F51B5");
+    $('.parcours').css("background-color","#3F51B5");
+    $('#not_mini').css("background-color","#3F51B5");
     $('paper-fab.link_web').removeClass('background_green');
     $('paper-fab.link_web').removeClass('background_rose');
     $('paper-fab.link_web').addClass('background_blue');
