@@ -203,6 +203,22 @@
     position: relative;
 
   }
+  .hobbies{
+    display: none;
+  }
+  .hobbies ul{
+    display: flex;
+    justify-content: center;
+  }
+  .hobbies ul li{
+  }
+  .hobbies ul li div{
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF;
+    @apply(--shadow-elevation-2dp);
+  }
   .corner{
     width: 10%;
     position: absolute;
@@ -387,6 +403,9 @@
   .sites article paper-material paper-button{
     margin-top: 10%;
   }
+  paper-dialog a{
+    display: inline-block;
+  }
   paper-dialog .dialog_list{
     text-align: left;
   }
@@ -404,6 +423,7 @@
   iron-overlay-backdrop{
   }
   paper-dialog{
+    text-align: center;
     font-family: 'Varela Round', sans-serif;
     max-width: 700px;
   }
@@ -421,6 +441,21 @@
   }
   paper-dialog a{
     margin: 10px 0 10px 0;
+  }
+  paper-dialog p{
+    margin-top: 20px;
+  }
+  paper-dialog img{
+    width: 70%;
+  }
+  paper-dialog img[alt="HeadFox_logo"]{
+    width: 60%;
+  }
+  paper-dialog img[alt="Markusturm_logo"]{
+    width: 40%;
+  }
+  paper-dialog img[alt="Piclab_logo"]{
+    width: 40%;
   }
   paper-dialog paper-fab{
     margin: 0 auto;
@@ -471,20 +506,6 @@
     top:0;
     bottom: 0;
     margin:auto;
-  }
-  .logos article paper-dialog .side_left{
-    width: 65%;
-  }
-  .logos article paper-dialog .side_right{
-    background-color: #212121;
-    color:#FFFFFF;
-    border-radius: 2px;
-    @apply(--shadow-elevation-2dp);
-    width: 35%;
-
-  }
-  .logos article paper-dialog img{
-    width: 80%;
   }
   .logos article paper-material img[alt="HeadFox"]{
     width: 100%;
@@ -625,8 +646,14 @@
     padding: 0;
     margin: 10px 0 10px 0;
   }
-  form paper-input, form paper-textarea{
+  .input_green{
     --paper-input-container-focus-color: #1DE9B6;
+  }
+  .input_blue{
+    --paper-input-container-focus-color: #F50057;
+  }
+  .input_rose{
+    --paper-input-container-focus-color: #01BCD4;
   }
   form .submit{
     font-family: 'Varela Round', sans-serif;

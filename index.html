@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"> -->
     <link rel="import" href="css/components_style.html">
+    <link rel="icon" href="img/icon.png">
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/paper-styles/color.html">
     <link rel="import" href="bower_components/iron-dropdown/iron-dropdown-scroll-manager.html">
@@ -65,7 +66,7 @@
         </div>
       </nav>
     </header>
-    <iron-pages selected="1">
+    <iron-pages selected="{{selected}}">
       <section>
         <article class="about">
           <div>
@@ -86,6 +87,14 @@
               Aliquam feugiat elit leo, sed pulvinar elit commodo eget.
             </p>
           </div>
+        </article>
+        <article class="hobbies">
+          <ul>
+            <li><div><span>XDA</span></h2></div><h3>Xda-developpers</h3></li>
+            <li><div></div><h3>High-Tech</h3></li>
+            <li><div></div><h3>Xda-developpers</h3></li>
+            <li><div></div><h3>Xda-developpers</h3></li>
+          </ul>
         </article>
         <article class="parcours">
             <h1>Mon parcours</h1>
@@ -146,7 +155,7 @@
               <paper-material>
                 <div>
                   <img src="img/collectif_logo.png" alt="Collectif">
-                  <paper-button id="stop_scroll" raised onclick="dialog.toggle()">En savoir plus</paper-button>
+                  <paper-button raised onclick="dialog.toggle()">En savoir plus</paper-button>
                 </div>
               </paper-material>
             </article>
@@ -276,7 +285,7 @@
                   <li><a href="http://www.baoidoux.fr" tabindex="-1"><paper-button class="no_color">baoidoux.fr</paper-button></a></li>
                   <li><a href="http://www.alexiameyer.fr" tabindex="-1"><paper-button class="no_color">alexiameyer.fr</paper-button></a></li>
                   <li><a href="http://www.arnaud-lebold.fr" tabindex="-1"><paper-button class="no_color">arnaud-lebold.fr</paper-button></a></li>
-                  <li><a href="http://www.tiphaine-buchart.fr" tabindex="-1"><paper-button class="no_color">tiphaine-lebold.fr</paper-button></a></li>
+                  <li><a href="http://www.tiphaine-buchart.fr" tabindex="-1"><paper-button class="no_color">tiphaine-buchart.fr</paper-button></a></li>
                 </ul>
               </div>
             </article>
@@ -287,10 +296,10 @@
         <article class="contact">
           <h1>Contact</h1>
           <form method="post" action="process.php" id="basic">
-            <paper-input name="nom" label="Nom"></paper-input>
-            <paper-input name="prenom" label="Prénom"></paper-input>
-            <paper-input name="email"label="Email" type="email"></paper-input>
-            <paper-textarea name="message" rows="4"label="Votre message"></paper-textarea>
+            <paper-input class="input_green" name="nom" label="Nom"></paper-input>
+            <paper-input   class="input_green"name="prenom" label="Prénom"></paper-input>
+            <paper-input   class="input_green"name="email"label="Email" type="email"></paper-input>
+            <paper-textarea  class="input_green" name="message" rows="4"label="Votre message"></paper-textarea>
             <paper-button><input class="submit" type="submit" value="Envoyer"></paper-button>
           </form>
           <div class="output"></div>
@@ -337,11 +346,11 @@
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
   <video src="#" controls autobuffer poster="img/collectif-screen/collectif-screen-1.png"></video>
   <paper-dialog-scrollable>
-    <iron-dropdown allowOutsideScroll>
   <ul class="dialog_list">
+    <li>Cadre : Auto-entrepreneur</li>
     <li>Demande : Mise à niveau de l'ancien site web</li>
     <li>
-      <ul>Chartre graphique :
+      <ul>Charte graphique :
         <li>Couleurs : Rouge, Gris, Blanc</li>
         <li>Style : Leger, Moderne, Simple
       </ul>
@@ -358,45 +367,111 @@
       </p>
     </li>
   </ul>
-</iron-dropdown >
 </paper-dialog-scrollable>
-  <a href="http://collectif-turbulences.fr"><paper-fab icon="icons:open-in-new"></paper-fab></a>
+  <a href="http://collectif-turbulences.fr"><paper-fab class="link_web background_green" icon="icons:open-in-new"></paper-fab></a>
 </paper-dialog>
 <paper-dialog  modal id="dialog2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
-  <h2>Dialog2 Title</h2>
+  <h2>Markusturm</h2>
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
   <video src="#" controls autobuffer poster="img/markusturm-screen/markusturm-screen-1.png"></video>
+  <paper-dialog-scrollable>
+    <ul class="dialog_list">
+      <li>Cadre : Scolaire (Demande de mise à niveau de vrai site en cours)</li>
+      <li>Demande : Mise à niveau de l'ancien site web avec ajout d'un nouveau service</li>
+      <li>
+        <ul>Charte graphique :
+          <li>Couleurs : Marron, Rouge, Blanc</li>
+          <li>Style : Leger, Romantique, Moderne, Luxe, Simple
+        </ul>
+      </li>
+      <li>Cible : Hôtel markuturm à Rothenburg odT. (Allemagne)</li>
+      <li>CMS : Wordpress</li>
+      <li>
+        <p>
+          Le site actuel as été laissé à l'abandon. Contenu manquant, design ancien,
+          technologie ancienne (XHTML).</br>
+          De nouvelles chambres ont été aménagers par l'Hôtel et celles-ci n'étaient pas assez
+          mise en avant sur le site. <br/>
+          Le nouveau site intégre aussi un nouveau systéme de réservation plus pratique.
+          Celui-ci permet de réserver de réserver depuis n'importe quel page du site.
+        </p>
+      </li>
+    </ul>
+  </paper-dialog-scrollable>
+  <a href="http://www.lucienpeslier.xyz/markusturm"><paper-fab class="link_web background_green" icon="icons:open-in-new"></paper-fab></a>
 </paper-dialog>
 <paper-dialog modal id="logo1" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
   <h2>Collectif turbulences</h2>
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
-      <img src="img/collectif_logo.png" alt="Collectif_2">
-      <p>JE T'AIME MON AMOUR</p>
+      <img src="img/collectif_logo.png" alt="Collectif_logo">
+      <paper-dialog-scrollable>
+        <ul class="dialog_list">
+          <li>Cadre : Logo créé dans le cadre de la création site pour l'association Collectif turbulences</li>
+          <li>
+            <ul>Charte graphique :
+              <li>Couleurs : Rouge, Gris, Blanc</li>
+              <li>Style : Littérature, Nuages, Turbulences, Simple, Moderne</li>
+            </ul>
+          </li>
+        </ul>
+      </paper-dialog-scrollable>
 </paper-dialog>
 <paper-dialog modal id="logo2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
-  <h2>Collectif turbulences</h2>
+  <h2>HeadFox logo</h2>
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
 
-      <img src="img/collectif_logo.png" alt="Collectif_2">
-
-      <p>JE T'AIME MON AMOUR</p>
-
+      <img src="img/headfox.png" alt="HeadFox_logo">
+      <paper-dialog-scrollable>
+        <ul class="dialog_list">
+          <li>Cadre : Logo personnel</li>
+          <li>HF : HeadFox / Surnom qui me référence sur les réseaux</li>
+          <li>
+            <ul>Charte graphique :
+              <li>Couleurs : Blanc, Orange, Vert</li>
+              <li>Style : Material design, Polygon</li>
+            </ul>
+          </li>
+        </ul>
+    </paper-dialog-scrollable>
 </paper-dialog>
 <paper-dialog modal id="logo3" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
   <h2>Collectif turbulences</h2>
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
 
-      <img src="img/collectif_logo.png" alt="Collectif_2">
-      <p>JE T'AIME MON AMOUR</p>
+      <img src="img/markusturm.png" alt="Markusturm_logo">
+      <paper-dialog-scrollable>
+        <ul class="dialog_list">
+          <li>Cadre : Logo réalisé dans un cadre scolaire pour le site web markusturm</li>
+          <li>
+            <ul>Charte graphique :
+              <li>Couleurs : Marron, Blanc</li>
+              <li>Style : Material design, Simple, Moderne</li>
+              <li>Symbole : Cigogne</li>
+            </ul>
+          </li>
+        </ul>
+    </paper-dialog-scrollable>
 
 </paper-dialog>
 <paper-dialog modal id="logo4" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
   <h2>Collectif turbulences</h2>
   <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
 
-      <img src="img/collectif_logo.png" alt="Collectif_2">
+      <img src="img/piclab.png" alt="Piclab_logo">
+      <paper-dialog-scrollable>
+        <ul class="dialog_list">
+          <li>Cadre : Logo réalisé dans un cadre scolaire pour le fablab de colmar</li>
+          <li>Nom : Piclab^3 -> Projet Innovation Création Collaboration Colmar </li>
+          <li>
+            <ul>Charte graphique :
+              <li>Couleurs : Violet, (Rouge, blue, vert : Couleurs du fablab)</li>
+              <li>Style : Simple, Polygonal</li>
+              <li>Symbole : Création 3D</li>
+            </ul>
+          </li>
+        </ul>
+    </paper-dialog-scrollable>
 
-      <p>JE T'AIME MON AMOUR</p>
 </paper-dialog>
   </body>
 </html>

@@ -14,7 +14,10 @@ $( document ).ready(function() {
   });
   /** A changer en javascript avec un event Polymer **/
   /** Bloque le scroll du body quand le paper-dialog est ouvert **/
-  $("#stop_scroll").click(function () {
+  $(".sites paper-button").click(function () {
+    $("body").addClass("modal-open");
+  });
+  $(".logos paper-button").click(function () {
     $("body").addClass("modal-open");
   });
   $(".close").click(function () {
@@ -54,7 +57,14 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#01BCD4");
     $('.parcours').css("background-color","#01BCD4");
     $('#not_mini').css("background-color","#01BCD4");
+    $('paper-fab.link_web').removeClass('background_green');
+    $('paper-fab.link_web').removeClass('background_rose');
+    $('paper-fab.link_web').addClass('background_blue');
+    $('paper-input, paper-textarea').removeClass('input_green');
+    $('paper-input, paper-textarea').removeClass('input_rose');
+    $('paper-input, paper-textarea').addClass('input_blue');
     $('.timeline').removeClass('color_green');
+    $('.timeline').addClass('color_blue');
     $('.timeline').removeClass('color_rose');
     $('.timeline').addClass('color_blue');
     $(".personalize.fourth").show();
@@ -79,6 +89,12 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#FF4081");
     $('.parcours').css("background-color","#FF4081");
     $('#not_mini').css("background-color","#FF4081");
+    $('paper-fab.link_web').removeClass('background_green');
+    $('paper-fab.link_web').addClass('background_rose');
+    $('paper-fab.link_web').removeClass('background_blue');
+    $('paper-input, paper-textarea').removeClass('input_green');
+    $('paper-input, paper-textarea').addClass('input_rose');
+    $('paper-input, paper-textarea').removeClass('input_blue');
     $('.timeline').removeClass('color_green');
     $('.timeline').removeClass('color_blue');
     $('.timeline').addClass('color_rose');
@@ -103,6 +119,12 @@ $( document ).ready(function() {
     $('.personalize.main').css("background-color","#1DE9B6");
     $('#not_mini').css("background-color","#1DE9B6");
     $('.parcours').css("background-color","#1DE9B6");
+    $('paper-fab.link_web').addClass('background_green');
+    $('paper-fab.link_web').removeClass('background_rose');
+    $('paper-fab.link_web').removeClass('background_blue');
+    $('paper-input, paper-textarea').addlass('input_green');
+    $('paper-input, paper-textarea').removeClass('input_rose');
+    $('paper-input, paper-textarea').removeClass('input_blue');
     $('.timeline').removeClass('color_blue');
     $('.timeline').removeClass('color_rose');
     $('.timeline').addClass('color_green');
