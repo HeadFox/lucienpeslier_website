@@ -5,6 +5,9 @@
   body{
     height: 100vh;
   }
+  body.modal-open {
+    overflow: hidden;
+}
   h1{
     font-size: 2.3em;
   }
@@ -44,10 +47,10 @@
     color: #ff4081;
   }
   .background_blue{
-    background-color: #607D8B;
+    background-color: #F50057  ;
   }
   .color_blue{
-    color: #01BCD4;
+    color: #3F51B5  ;
   }
 
   paper-button{
@@ -92,7 +95,7 @@
 
   }
   .peslierlucien{
-    cursor: pointer;
+    cursor: help;
     width: 100px;
     height: 100px;
     background-color: #FFFFFF;
@@ -152,8 +155,8 @@
   }
   .personalize.second{
     bottom: -82px;
-    background-color: #607d8b;
-    color: #01bcd4;
+    background-color: #F50057  ;
+    color: #3F51B5  ;
   }
   .personalize.third{
     bottom: -135px;
@@ -170,7 +173,7 @@
     --paper-tabs-selection-bar-color: #1DE9B6;
   }
   .second-colorize{
-    background-color: #607D8B;
+    background-color: #F50057  ;
     color: #FFFFFF;
     --paper-tab-ink: #FFFFFF;
   }
@@ -384,11 +387,25 @@
   .sites article paper-material paper-button{
     margin-top: 10%;
   }
+  paper-dialog .dialog_list{
+    text-align: left;
+  }
+  paper-dialog .dialog_list li {
+    line-height: 1.8em;
+
+  }
+  paper-dialog .dialog_list li ul{
+    list-style: disc;
+  }
+  paper-dialog .dialog_list li ul li{
+    margin-left: 20px;
+  }
   /** Dialog **/
   iron-overlay-backdrop{
   }
   paper-dialog{
     font-family: 'Varela Round', sans-serif;
+    max-width: 700px;
   }
   paper-dialog h2{
     font-family: 'Varela Round', sans-serif;
@@ -401,6 +418,12 @@
     top:0;
     right:0;
     cursor: pointer;
+  }
+  paper-dialog a{
+    margin: 10px 0 10px 0;
+  }
+  paper-dialog paper-fab{
+    margin: 0 auto;
   }
   .logos{
     padding-bottom: 40px;
@@ -426,6 +449,7 @@
     margin:auto;
     transition: all 0.2s ease;
     transform: scale(0);
+    z-index: 10;
   }
   .logos article paper-material{
     background-color: #FFFFFF;
@@ -437,6 +461,7 @@
     transform: scale(0.8);
     cursor: pointer;
     position: relative;
+    z-index: 9;
   }
   .logos article paper-material img{
     width: 80%;
@@ -447,6 +472,20 @@
     bottom: 0;
     margin:auto;
   }
+  .logos article paper-dialog .side_left{
+    width: 65%;
+  }
+  .logos article paper-dialog .side_right{
+    background-color: #212121;
+    color:#FFFFFF;
+    border-radius: 2px;
+    @apply(--shadow-elevation-2dp);
+    width: 35%;
+
+  }
+  .logos article paper-dialog img{
+    width: 80%;
+  }
   .logos article paper-material img[alt="HeadFox"]{
     width: 100%;
   }
@@ -456,10 +495,10 @@
   .logos article paper-material img[alt="Piclab"]{
     width: 60%;
   }
-  .logos article:hover paper-button{
+  .logos article > div:hover paper-button{
     transform: scale(1);
   }
-  .logos article:hover paper-material{
+  .logos article > div:hover paper-material{
     transform: scale(1);
     opacity: 0.6;
   }
@@ -535,7 +574,7 @@
     --paper-progress-active-color: #FFEA00;
   }
   .light_blue{
-    --paper-progress-active-color: #00B0FF;
+    --paper-progress-active-color: #3F51B5 ;
   }
   .blue{
     --paper-progress-active-color: #2979FF;
@@ -585,6 +624,9 @@
   form paper-button{
     padding: 0;
     margin: 10px 0 10px 0;
+  }
+  form paper-input, form paper-textarea{
+    --paper-input-container-focus-color: #1DE9B6;
   }
   form .submit{
     font-family: 'Varela Round', sans-serif;

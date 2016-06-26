@@ -11,6 +11,7 @@
     <link rel="import" href="css/components_style.html">
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/paper-styles/color.html">
+    <link rel="import" href="bower_components/iron-dropdown/iron-dropdown-scroll-manager.html">
     <link rel="import" href="bower_components/paper-styles/default-theme.html">
     <link rel="import" href="bower_components/paper-styles/shadow.html">
     <link rel="import" href="bower_components/paper-styles/typography.html">
@@ -31,6 +32,7 @@
     <link rel="import" href="bower_components/neon-animation/animations/scale-up-animation.html">
     <link rel="import" href="bower_components/neon-animation/animations/fade-out-animation.html">
     <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
     <link rel="import" href="bower_components/paper-dialog-behavior/paper-dialog-behavior.html">
     <link rel="import" href="bower_components/paper-dialog-behavior/paper-dialog-shared-styles.html">
     <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
@@ -38,7 +40,7 @@
     <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
     <link rel="import" href="bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
   </head>
-  <body>
+  <body id="#body">
   <template is="dom-bind">
     <header>
       <div class="background">
@@ -63,7 +65,7 @@
         </div>
       </nav>
     </header>
-    <iron-pages selected="{{selected}}">
+    <iron-pages selected="1">
       <section>
         <article class="about">
           <div>
@@ -144,59 +146,47 @@
               <paper-material>
                 <div>
                   <img src="img/collectif_logo.png" alt="Collectif">
-                  <paper-button raised data-dialog="modal" onclick="clickHandler(event)">Voir le site</paper-button>
+                  <paper-button id="stop_scroll" raised onclick="dialog.toggle()">En savoir plus</paper-button>
                 </div>
               </paper-material>
-              <paper-dialog id="modal" entry-animation="scale-up-animation" exit-animation="fade-out-animation" >
-                <h2>Collectif Turbulences</h2>
-                <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
-                <video src="#" controls autobuffer poster="img/collectif-screen/collectif-screen-1.png"></video>
-                <ul class="dialog_list">
-                  <li>Demande : Mise à niveau de l'ancien site web</li>
-                  <li>
-                    <ul>Chartre graphique :
-                      <li>Couleurs : Rouge, Gris, Blanc</li>
-                      <li>Style : Leger, Moderne
-                    </ul>
-                  </li>
-                  <li>Cible : Association d'écrivains et de comédiens</li>
-                  <li>Technologies utilisés : Wordpress</li>
-                  <li></li>
-                </ul>
-              </paper-dialog>
             </article>
             <article class="markusturm">
               <h2 class="hidden">Markusturm</h2>
               <paper-material>
                 <div>
                   <img src="img/markusturm.png" alt="Markusturm">
-                  <paper-button raised onclick="dialog2.toggle()">Voir le site</paper-button>
+                  <paper-button raised onclick="dialog2.toggle()">En savoir plus</paper-button>
                 </div>
               </paper-material>
-              <paper-dialog id="dialog2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
-                <h2>Dialog2 Title</h2>
-                <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
-                <video src="#" controls autobuffer poster="img/markusturm-screen/markusturm-screen-1.png"></video>
-              </paper-dialog>
             </article>
           </section>
           <section class="logos">
             <h2>Mes logos</h2>
             <article>
-              <paper-material><img src="img/collectif_logo.png" alt="Collectif"></paper-material>
-              <paper-button raised>Voir le logo</paper-button>
+              <div>
+                <paper-button raised onclick="logo1.toggle()">Voir le logo</paper-button>
+                <paper-material>
+                <img src="img/collectif_logo.png" alt="Collectif">
+                </paper-material>
+              </div>
             </article>
             <article>
+              <div>
+                <paper-button raised onclick="logo2.toggle()">Voir le logo</paper-button>
               <paper-material><img src="img/headfox.png" alt="HeadFox"></paper-material>
-              <paper-button raised>Voir le logo</paper-button>
+            </div>
             </article>
             <article>
+              <div>
+                <paper-button raised onclick="logo3.toggle()">Voir le logo</paper-button>
               <paper-material><img src="img/markusturm.png" alt="Markusturm"></paper-material>
-              <paper-button raised>Voir le logo</paper-button>
+            </div>
             </article>
             <article>
+              <div>
+                <paper-button raised onclick="logo4.toggle()">Voir le logo</paper-button>
               <paper-material><img src="img/piclab.png" alt="Piclab"></paper-material>
-              <paper-button raised>Voir le logo</paper-button>
+            </div>
             </article>
           </section>
         </article>
@@ -337,51 +327,76 @@
   document.addEventListener('WebComponentsReady', function () {
     var template = document.querySelector('template[is="dom-bind"]');
     template.selected = 0; // selected is an index by default
+    progress = document.querySelector('paper-progress');
+    button = document.querySelector('paper-button');
   });
-  function clickHandler(e) {
-       var button = e.target;
-       while (!button.hasAttribute('data-dialog') && button !== document.body) {
-         button = button.parentElement;
-       }
-       if (!button.hasAttribute('data-dialog')) {
-         return;
-       }
-       var id = button.getAttribute('data-dialog');
-       var dialog = document.getElementById(id);
-       if (dialog) {
-         dialog.open();
-       }
-     }
-  var progress, button;
-    var repeat, maxRepeat = 1, animating = false;
-    function nextProgress() {
-      animating = true;
-      if (progress.value < progress.max) {
-        progress.value += (progress.step || 1);
-      } else {
-        if (++repeat >= maxRepeat) {
-          animating = false;
-          button.disabled = false;
-          return;
-        }
-        progress.value = progress.min;
-      }
-      requestAnimationFrame(nextProgress);
-    }
-    function startProgress() {
-      repeat = 0;
-      progress.value = progress.min;
-      button.disabled = true;
-      if (!animating) {
-        nextProgress();
-      }
-    }
-    window.addEventListener('WebComponentsReady', function() {
-      progress = document.querySelector('paper-progress');
-      button = document.querySelector('paper-button');
-    });
 
 </script>
+<paper-dialog id="dialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
+  <h2>Collectif Turbulences</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
+  <video src="#" controls autobuffer poster="img/collectif-screen/collectif-screen-1.png"></video>
+  <paper-dialog-scrollable>
+    <iron-dropdown allowOutsideScroll>
+  <ul class="dialog_list">
+    <li>Demande : Mise à niveau de l'ancien site web</li>
+    <li>
+      <ul>Chartre graphique :
+        <li>Couleurs : Rouge, Gris, Blanc</li>
+        <li>Style : Leger, Moderne, Simple
+      </ul>
+    </li>
+    <li>Cible : Association d'écrivains et de comédiens</li>
+    <li>CMS : Wordpress</li>
+    <li>
+      <p>
+      La création de ce site web à été penser de telle sorte que chaque utilisateur
+      pourra editer, créer et supprimer des articles simplement, d'où l'utilisation
+      d'un wordpress. </br>
+      Par exemple chaque utilisateur peut ajouter un article qui apparaitra
+      sur sa page personnel par simple selection de la catégorie lors de sa création.
+      </p>
+    </li>
+  </ul>
+</iron-dropdown >
+</paper-dialog-scrollable>
+  <a href="http://collectif-turbulences.fr"><paper-fab icon="icons:open-in-new"></paper-fab></a>
+</paper-dialog>
+<paper-dialog  modal id="dialog2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+  <h2>Dialog2 Title</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
+  <video src="#" controls autobuffer poster="img/markusturm-screen/markusturm-screen-1.png"></video>
+</paper-dialog>
+<paper-dialog modal id="logo1" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+  <h2>Collectif turbulences</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
+      <img src="img/collectif_logo.png" alt="Collectif_2">
+      <p>JE T'AIME MON AMOUR</p>
+</paper-dialog>
+<paper-dialog modal id="logo2" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+  <h2>Collectif turbulences</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
 
+      <img src="img/collectif_logo.png" alt="Collectif_2">
+
+      <p>JE T'AIME MON AMOUR</p>
+
+</paper-dialog>
+<paper-dialog modal id="logo3" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+  <h2>Collectif turbulences</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
+
+      <img src="img/collectif_logo.png" alt="Collectif_2">
+      <p>JE T'AIME MON AMOUR</p>
+
+</paper-dialog>
+<paper-dialog modal id="logo4" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+  <h2>Collectif turbulences</h2>
+  <iron-icon class="close" icon="icons:close" dialog-dismiss></iron-icon>
+
+      <img src="img/collectif_logo.png" alt="Collectif_2">
+
+      <p>JE T'AIME MON AMOUR</p>
+</paper-dialog>
   </body>
 </html>

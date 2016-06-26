@@ -2,9 +2,7 @@ $( document ).ready(function() {
   var content = $('header');
   var secondaryNav = $('.before_tabs'),
   	secondaryNavTopPosition = secondaryNav.offset().top;
-
   $(window).on('scroll', function(){
-
   	if($(window).scrollTop() > secondaryNavTopPosition ) {
   		secondaryNav.addClass('is-fixed');
       content.addClass('addbot');
@@ -14,6 +12,15 @@ $( document ).ready(function() {
       content.removeClass('addbot');
   	}
   });
+  /** A changer en javascript avec un event Polymer **/
+  /** Bloque le scroll du body quand le paper-dialog est ouvert **/
+  $("#stop_scroll").click(function () {
+    $("body").addClass("modal-open");
+  });
+  $(".close").click(function () {
+    $("body").removeClass("modal-open");
+  });
+
   $(".personalize.main").click(function(){
     $(".mini").toggle();
   });
